@@ -1,6 +1,6 @@
-# Modern Developer Portfolio
+# Rudresh-MR-Portfollio
 
-A professional, responsive, and dynamic portfolio website for a Computer Science student. Built with Next.js, Tailwind CSS, and Framer Motion.
+A professional, responsive, and dynamic portfolio website for an Artificial Intelligence and Data Science student. Built with Next.js, Tailwind CSS, and Framer Motion.
 
 ## Features
 
