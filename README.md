@@ -29,9 +29,6 @@ A professional, responsive, and dynamic portfolio website for an Artificial Inte
 
 2. **Environment Variables**:
    Create a `.env.local` file and add your GitHub username:
-   ```env
-   NEXT_PUBLIC_GITHUB_USERNAME=your_username
-   ```
 
 3. **Run Locally**:
    ```bash
