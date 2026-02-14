@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern Developer Portfolio
 
-## Getting Started
+A professional, responsive, and dynamic portfolio website for a Computer Science student. Built with Next.js, Tailwind CSS, and Framer Motion.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Modern UI**: Clean, minimal design with glassmorphism and smooth animations.
+- **Dynamic Projects**: Fetches top GitHub repositories automatically.
+- **Coding Stats**: Visual representation of LeetCode progress.
+- **Responsive**: Optimised for mobile, tablet, and desktop.
+- **Dark Mode**: Supports light/dark mode with a persistable toggle.
+- **Contact Form**: Ready-to-integrate contact form.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: Next.js (App Router)
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Charts**: Recharts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup Instructions
 
-## Learn More
+1. **Clone the repository**:
+   ```bash
+   # In the project directory
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Environment Variables**:
+   Create a `.env.local` file and add your GitHub username:
+   ```env
+   NEXT_PUBLIC_GITHUB_USERNAME=your_username
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Run Locally**:
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Customization**:
+   - Update `src/components/hero.tsx` for your bio and social links.
+   - Update `src/components/about.tsx` with your education and skills.
+   - Replace `/public/photo.jpg` with your profile picture.
+   - Update `src/components/contact.tsx` with your email and social handles.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ready for one-click deployment on [Vercel](https://vercel.com) or [Netlify](https://netlify.com).
