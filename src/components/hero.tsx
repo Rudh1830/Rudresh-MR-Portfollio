@@ -57,17 +57,17 @@ export function Hero() {
                         </Button>
                     </div>
 
-                    <div className="flex items-center gap-6">
-                        <a href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Rudh1830'}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    <div className="flex items-center gap-6 relative z-20">
+                        <a href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Rudh1830'}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">
                             <Github size={24} />
                         </a>
-                        <a href={process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/in/rudresh-m-r-842022298'} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        <a href={process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/in/rudresh-m-r-842022298'} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">
                             <Linkedin size={24} />
                         </a>
-                        <a href={`https://www.kaggle.com/${process.env.NEXT_PUBLIC_KAGGLE_USERNAME || 'rudresh18'}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        <a href={`https://www.kaggle.com/${process.env.NEXT_PUBLIC_KAGGLE_USERNAME || 'rudresh18'}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">
                             <span className="font-bold text-xl leading-none">K</span>
                         </a>
-                        <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL || 'rudreshramasamy@gmail.com'}`} className="hover:text-primary transition-colors">
+                        <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL || 'rudreshramasamy@gmail.com'}`} className="hover:text-primary transition-colors cursor-pointer">
                             <Mail size={24} />
                         </a>
                     </div>
@@ -89,7 +89,7 @@ export function Hero() {
                   but the user said they uploaded it. I'll check public folder. */}
                             <Image
                                 src="/photo.png"
-                                alt="Rudresh"
+                                alt="rudresh.mr"
                                 fill
                                 className="object-cover"
                                 priority

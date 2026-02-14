@@ -21,7 +21,7 @@ interface Repository {
 const FALLBACK_REPOS: Repository[] = [
     {
         id: 0,
-        name: 'Real-Time-News-Data-Streaming-Pipeline',
+        name: 'Real-Time-News-Data-Streaming-Pipeline-Using-Snowflake-and-Docker',
         description: 'An end-to-end data streaming pipeline for news data utilizing Snowflake, Docker, and Kafka for real-time processing and storage.',
         html_url: 'https://github.com/Rudh1830/Real-Time-News-Data-Streaming-Pipeline-Using-Snowflake-and-Docker',
         homepage: '',
@@ -113,10 +113,11 @@ export function Projects() {
             );
 
             if (dataPipelineRepo) {
-                // Filter out the dataPipelineRepo from fallback to avoid duplicates
+                // Aggressively filter to prevent duplicates
                 const filteredFallbacks = FALLBACK_REPOS.filter(repo =>
                     repo.id !== dataPipelineRepo.id &&
-                    repo.name !== dataPipelineRepo.name &&
+                    !repo.name.toLowerCase().includes('data-streaming') &&
+                    !repo.name.toLowerCase().includes('data-pipeline') &&
                     repo.name !== 'Real-Time-News-Data-Streaming-Pipeline'
                 );
                 const otherRepos = filteredFallbacks.slice(0, 5);

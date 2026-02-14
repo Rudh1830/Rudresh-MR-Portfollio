@@ -14,9 +14,9 @@ export function Contact() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate form submission
-        console.log('Form submitted:', formData);
-        alert('Thank you! I will get back to you soon.');
+        const email = process.env.NEXT_PUBLIC_EMAIL || 'rudreshramasamy@gmail.com';
+        const mailtoLink = `mailto:${email}?subject=Message from ${formData.name}&body=${formData.message} (Contact Email: ${formData.email})`;
+        window.location.href = mailtoLink;
         setFormData({ name: '', email: '', message: '' });
     };
 
@@ -51,10 +51,10 @@ export function Contact() {
                                 <MessageSquare className="text-primary" /> Contact Details
                             </h3>
 
-                            <div className="space-y-6">
+                            <div className="space-y-6 relative z-20">
                                 <a
                                     href={`mailto:${process.env.NEXT_PUBLIC_EMAIL || 'rudreshramasamy@gmail.com'}`}
-                                    className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group"
+                                    className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group cursor-pointer"
                                 >
                                     <div className="p-3 bg-primary/20 rounded-xl text-primary group-hover:scale-110 transition-transform">
                                         <Mail size={24} />
@@ -67,7 +67,7 @@ export function Contact() {
 
                                 <a
                                     href={`tel:${process.env.NEXT_PUBLIC_PHONE || '9566970199'}`}
-                                    className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group"
+                                    className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group cursor-pointer"
                                 >
                                     <div className="p-3 bg-primary/20 rounded-xl text-primary group-hover:scale-110 transition-transform">
                                         <Phone size={24} />
@@ -79,10 +79,10 @@ export function Contact() {
                                 </a>
 
                                 <a
-                                    href={process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com'}
+                                    href={process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/in/rudresh-m-r-842022298'}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group"
+                                    className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group cursor-pointer"
                                 >
                                     <div className="p-3 bg-primary/20 rounded-xl text-primary group-hover:scale-110 transition-transform">
                                         <Linkedin size={24} />
@@ -97,7 +97,7 @@ export function Contact() {
                                     href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Rudh1830'}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group"
+                                    className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group cursor-pointer"
                                 >
                                     <div className="p-3 bg-primary/20 rounded-xl text-primary group-hover:scale-110 transition-transform">
                                         <Github size={24} />
