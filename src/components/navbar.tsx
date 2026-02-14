@@ -38,7 +38,7 @@ export function Navbar() {
                     animate={{ opacity: 1, x: 0 }}
                     className="text-2xl font-bold tracking-tight text-primary"
                 >
-                    Rudresh<span className="text-foreground">.MR</span>
+                    rudresh<span className="text-foreground">.mr</span>
                 </motion.div>
 
                 {/* Desktop Menu */}

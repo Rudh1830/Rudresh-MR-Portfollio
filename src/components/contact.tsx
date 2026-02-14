@@ -53,7 +53,7 @@ export function Contact() {
 
                             <div className="space-y-6">
                                 <a
-                                    href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`}
+                                    href={`mailto:${process.env.NEXT_PUBLIC_EMAIL || 'rudreshramasamy@gmail.com'}`}
                                     className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group"
                                 >
                                     <div className="p-3 bg-primary/20 rounded-xl text-primary group-hover:scale-110 transition-transform">
@@ -61,12 +61,12 @@ export function Contact() {
                                     </div>
                                     <div>
                                         <p className="text-sm text-muted-foreground">Email</p>
-                                        <p className="font-semibold">{process.env.NEXT_PUBLIC_EMAIL}</p>
+                                        <p className="font-semibold">{process.env.NEXT_PUBLIC_EMAIL || 'rudreshramasamy@gmail.com'}</p>
                                     </div>
                                 </a>
 
                                 <a
-                                    href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}
+                                    href={`tel:${process.env.NEXT_PUBLIC_PHONE || '9566970199'}`}
                                     className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group"
                                 >
                                     <div className="p-3 bg-primary/20 rounded-xl text-primary group-hover:scale-110 transition-transform">
@@ -74,12 +74,12 @@ export function Contact() {
                                     </div>
                                     <div>
                                         <p className="text-sm text-muted-foreground">Phone</p>
-                                        <p className="font-semibold">{process.env.NEXT_PUBLIC_PHONE}</p>
+                                        <p className="font-semibold">{process.env.NEXT_PUBLIC_PHONE || '9566970199'}</p>
                                     </div>
                                 </a>
 
                                 <a
-                                    href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
+                                    href={process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com'}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group"
@@ -89,12 +89,12 @@ export function Contact() {
                                     </div>
                                     <div>
                                         <p className="text-sm text-muted-foreground">LinkedIn</p>
-                                        <p className="font-semibold">View Profile</p>
+                                        <p className="font-semibold line-clamp-1">linkedin.com/in/rudresh-m-r</p>
                                     </div>
                                 </a>
 
                                 <a
-                                    href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
+                                    href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Rudh1830'}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-4 p-4 rounded-2xl hover:bg-primary/10 transition-colors group"
@@ -104,7 +104,7 @@ export function Contact() {
                                     </div>
                                     <div>
                                         <p className="text-sm text-muted-foreground">GitHub</p>
-                                        <p className="font-semibold">github.com/{process.env.NEXT_PUBLIC_GITHUB_USERNAME}</p>
+                                        <p className="font-semibold line-clamp-1">github.com/{process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Rudh1830'}</p>
                                     </div>
                                 </a>
                             </div>

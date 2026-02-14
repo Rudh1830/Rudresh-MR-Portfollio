@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rudresh.MR | AI & Data Science Portfolio",
-  description: "Modern portfolio of Rudresh.MR, an Artificial Intelligence and Data Science student specializing in ML, DL, and Predictive Analytics.",
-  keywords: ["AI Student", "Data Science Portfolio", "Machine Learning Portfolio", "Rudresh.MR", "Karpagam College of Engineering"],
+  title: "rudresh.mr | AI & Data Science Portfolio",
+  description: "Modern portfolio of rudresh.mr, an Artificial Intelligence and Data Science student specializing in ML, DL, and Predictive Analytics.",
+  keywords: ["AI Student", "Data Science Portfolio", "Machine Learning Portfolio", "rudresh.mr", "Karpagam College of Engineering"],
 };
 
 export default function RootLayout({

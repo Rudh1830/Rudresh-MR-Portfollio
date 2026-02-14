@@ -113,8 +113,13 @@ export function Projects() {
             );
 
             if (dataPipelineRepo) {
-                // If found, show it along with others, or just prioritized
-                const otherRepos = FALLBACK_REPOS.slice(0, 5);
+                // Filter out the dataPipelineRepo from fallback to avoid duplicates
+                const filteredFallbacks = FALLBACK_REPOS.filter(repo =>
+                    repo.id !== dataPipelineRepo.id &&
+                    repo.name !== dataPipelineRepo.name &&
+                    repo.name !== 'Real-Time-News-Data-Streaming-Pipeline'
+                );
+                const otherRepos = filteredFallbacks.slice(0, 5);
                 setRepos([dataPipelineRepo, ...otherRepos]);
             } else {
                 setRepos(FALLBACK_REPOS);
