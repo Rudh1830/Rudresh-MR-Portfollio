@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --font-sans: var(--font-sora), sans-serif;
+  --font-mono: var(--font-space-mono), monospace;
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
@@ -27,61 +29,81 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 48 36% 98%;
+    --foreground: 210 24% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 24% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
+    --popover-foreground: 210 24% 12%;
+    --primary: 167 84% 30%;
+    --primary-foreground: 48 36% 98%;
+    --secondary: 40 33% 93%;
+    --secondary-foreground: 210 22% 20%;
+    --muted: 44 30% 94%;
+    --muted-foreground: 214 14% 37%;
+    --accent: 40 90% 56%;
+    --accent-foreground: 214 22% 14%;
+    --destructive: 0 82% 56%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --border: 210 20% 85%;
+    --input: 210 20% 85%;
+    --ring: 167 84% 30%;
+    --radius: 0.9rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --background: 206 26% 9%;
+    --foreground: 46 35% 95%;
+    --card: 208 24% 13%;
+    --card-foreground: 46 35% 95%;
+    --popover: 208 24% 13%;
+    --popover-foreground: 46 35% 95%;
+    --primary: 166 74% 42%;
+    --primary-foreground: 205 34% 10%;
+    --secondary: 208 18% 19%;
+    --secondary-foreground: 46 35% 92%;
+    --muted: 208 18% 19%;
+    --muted-foreground: 46 16% 70%;
+    --accent: 39 100% 63%;
+    --accent-foreground: 209 28% 12%;
+    --destructive: 0 70% 48%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 208 18% 26%;
+    --input: 208 18% 26%;
+    --ring: 166 74% 42%;
   }
-}
 
-@layer base {
   * {
     @apply border-border outline-ring/50;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sora), sans-serif;
+    background-image:
+      radial-gradient(circle at 12% 18%, hsl(var(--primary) / 0.2), transparent 30%),
+      radial-gradient(circle at 86% 82%, hsl(var(--accent) / 0.14), transparent 33%),
+      linear-gradient(145deg, hsl(var(--background)) 0%, hsl(var(--secondary) / 0.35) 100%);
+    background-attachment: fixed;
   }
 }
 
-.glass {
-  @apply bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/20 dark:border-white/10;
+@layer utilities {
+  .glass {
+    @apply border backdrop-blur-xl;
+    background: linear-gradient(145deg, hsl(var(--card) / 0.84), hsl(var(--secondary) / 0.48));
+    box-shadow: 0 24px 65px hsl(0 0% 0% / 0.09);
+  }
+
+  .section-wrap {
+    @apply mx-auto max-w-7xl px-6;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-5xl font-bold tracking-tight;
+  }
 }

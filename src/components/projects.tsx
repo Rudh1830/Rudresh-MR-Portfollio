@@ -20,63 +20,75 @@ interface Repository {
 
 const FALLBACK_REPOS: Repository[] = [
     {
-        id: 0,
-        name: 'Real-Time-News-Data-Streaming-Pipeline-Using-Snowflake-and-Docker',
-        description: 'An end-to-end data streaming pipeline for news data utilizing Snowflake, Docker, and Kafka for real-time processing and storage.',
+        id: 1171480901,
+        name: 'Smart Manufacturing Analytics',
+        description: 'Lightweight data analytics system for reducing rejection rates in small industries using Pareto analysis and control charts.',
+        html_url: 'https://github.com/Rudh1830/Data-Analytics-Model-To-Reduce-Rejection-Rates-In-Small-Industries',
+        homepage: '',
+        stargazers_count: 8,
+        forks_count: 3,
+        language: 'Python',
+        topics: ['Data Analytics', 'Streamlit', 'Manufacturing'],
+        fork: false,
+    },
+    {
+        id: 1143037499,
+        name: 'Real-Time News Data Pipeline',
+        description: 'End-to-end data engineering project streaming news into Snowflake via Kafka and Docker.',
         html_url: 'https://github.com/Rudh1830/Real-Time-News-Data-Streaming-Pipeline-Using-Snowflake-and-Docker',
         homepage: '',
         stargazers_count: 10,
         forks_count: 4,
         language: 'Python',
-        topics: ['Snowflake', 'Docker', 'Kafka', 'Data Engineering', 'Real-time'],
+        topics: ['Snowflake', 'Kafka', 'Docker'],
         fork: false,
     },
     {
-        id: 1,
-        name: 'Cricket-Player-Run-Prediction',
-        description: 'A machine learning model using Logistic Regression to predict cricket player run outcomes based on historical match data. Built with Streamlit.',
-        html_url: 'https://github.com/Rudh1830',
+        id: 1139718910,
+        name: 'YOLOv8 Intruder Detection',
+        description: 'AI-powered security system using YOLOv8 and Gradio for real-time intruder monitoring and capture.',
+        html_url: 'https://github.com/Rudh1830/Intruder-Detection-System-Using-YOLOv8-with-Gradio-Interface',
         homepage: '',
-        stargazers_count: 5,
-        forks_count: 2,
+        stargazers_count: 15,
+        forks_count: 5,
         language: 'Python',
-        topics: ['Machine Learning', 'Streamlit', 'Scikit-learn'],
+        topics: ['Computer Vision', 'YOLOv8', 'AI'],
         fork: false,
     },
     {
-        id: 2,
-        name: 'Smart-Transportation-System',
-        description: 'Price comparison and recommendation system for flights, trains, buses, and cab services. Integrated with Flask for web delivery.',
-        html_url: 'https://github.com/Rudh1830',
+        id: 1142247108,
+        name: 'Breast Cancer Neural Network',
+        description: 'Deep learning model for tumor classification (malignant/benign) with high accuracy.',
+        html_url: 'https://github.com/Rudh1830/Breast-Cancer-Classification-Using-Neural-Network',
         homepage: '',
-        stargazers_count: 4,
-        forks_count: 1,
+        stargazers_count: 12,
+        forks_count: 4,
         language: 'Python',
-        topics: ['Flask', 'Data Analysis', 'Web Development'],
+        topics: ['Deep Learning', 'Neural Networks', 'MedTech'],
         fork: false,
     },
     {
-        id: 3,
-        name: 'AI-Text-to-Image-Generator',
-        description: 'AI-powered text-to-image generation application using Gradio and Generative AI concepts.',
-        html_url: 'https://github.com/Rudh1830',
+        id: 1127171750,
+        name: 'AI Ticketing Assistant',
+        description: 'NLP-based transportation assistant for route queries and fare information.',
+        html_url: 'https://github.com/Rudh1830/Smart-Transportation-Ticketing-Assistant',
         homepage: '',
         stargazers_count: 7,
-        forks_count: 3,
-        language: 'Python',
-        topics: ['Generative AI', 'Gradio', 'Neural Networks'],
+        forks_count: 2,
+        language: 'JavaScript',
+        topics: ['AI', 'NLP', 'Transportation'],
         fork: false,
     },
     {
-        id: 4,
-        name: 'Resume-Portfolio-Assistant',
-        description: 'Web-based application for generating professional resumes and portfolios with real-time preview.',
-        html_url: 'https://github.com/Rudh1830',
+        id: 1139655080,
+        name: 'Market Basket Analysis',
+        description: 'Mining purchasing patterns using FP-Growth algorithm on retail transaction data.',
+        html_url: 'https://github.com/Rudh1830/Market-Basket-Analysis-Using-FP-Growth-Algorithm',
         homepage: '',
         stargazers_count: 6,
         forks_count: 2,
-        language: 'JavaScript',
-        topics: ['HTML', 'CSS', 'Flask'],
+        language: 'Python',
+        topics: ['Data Mining', 'Machine Learning'],
         fork: false,
     },
 ];
@@ -92,7 +104,7 @@ export function Projects() {
             setError(false);
             const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Rudh1830';
             const response = await fetch(
-                `https://api.github.com/users/${username}/repos?sort=stars&per_page=100`
+                `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
             );
 
             if (response.status === 403) {
@@ -105,29 +117,30 @@ export function Projects() {
 
             const data: Repository[] = await response.json();
 
-            // From github add only real time data pipeline project
-            const dataPipelineRepo = data.find(repo =>
-                repo.name === 'Real-Time-News-Data-Streaming-Pipeline-Using-Snowflake-and-Docker' ||
-                repo.name.toLowerCase().includes('data-streaming-pipeline') ||
-                repo.description?.toLowerCase().includes('snowflake') && repo.description?.toLowerCase().includes('docker')
-            );
+            const importantRepoNames = [
+                'Intruder-Detection-System-Using-YOLOv8-with-Gradio-Interface',
+                'Real-Time-News-Data-Streaming-Pipeline-Using-Snowflake-and-Docker',
+                'Data-Analytics-Model-To-Reduce-Rejection-Rates-In-Small-Industries',
+                'Breast-Cancer-Classification-Using-Neural-Network',
+                'Smart-Transportation-Ticketing-Assistant',
+                'Market-Basket-Analysis-Using-FP-Growth-Algorithm'
+            ];
 
-            if (dataPipelineRepo) {
-                // Aggressively filter to prevent duplicates
-                const filteredFallbacks = FALLBACK_REPOS.filter(repo =>
-                    repo.id !== dataPipelineRepo.id &&
-                    !repo.name.toLowerCase().includes('data-streaming') &&
-                    !repo.name.toLowerCase().includes('data-pipeline') &&
-                    repo.name !== 'Real-Time-News-Data-Streaming-Pipeline'
-                );
-                const otherRepos = filteredFallbacks.slice(0, 5);
-                setRepos([dataPipelineRepo, ...otherRepos]);
-            } else {
-                setRepos(FALLBACK_REPOS);
-            }
+            const sortedRepos = data
+                .filter(repo => !repo.fork && repo.name !== username)
+                .sort((a, b) => {
+                    const aImportant = importantRepoNames.includes(a.name) ? 1 : 0;
+                    const bImportant = importantRepoNames.includes(b.name) ? 1 : 0;
+                    if (aImportant !== bImportant) return bImportant - aImportant;
+                    return b.stargazers_count - a.stargazers_count;
+                });
+
+            const topRepos = sortedRepos.slice(0, 6);
+            setRepos(topRepos.length > 0 ? topRepos : FALLBACK_REPOS);
         } catch (err) {
             console.error('Error fetching GitHub repos:', err);
             setRepos(FALLBACK_REPOS);
+            setError(true);
         } finally {
             setLoading(false);
         }
@@ -140,14 +153,14 @@ export function Projects() {
     if (loading) {
         return (
             <section id="projects" className="py-24">
-                <div className="max-w-7xl mx-auto px-6">
+                <div className="section-wrap">
                     <div className="text-center mb-16">
                         <div className="h-12 w-48 bg-muted animate-pulse mx-auto rounded-xl mb-4" />
                         <div className="h-1 w-24 bg-primary/20 mx-auto rounded-full" />
                     </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[1, 2, 3, 4, 5, 6].map((i) => (
-                            <div key={i} className="glass h-64 rounded-3xl animate-pulse" />
+                            <div key={i} className="glass h-72 rounded-3xl animate-pulse" />
                         ))}
                     </div>
                 </div>
@@ -158,7 +171,7 @@ export function Projects() {
     if (error) {
         return (
             <section id="projects" className="py-24">
-                <div className="max-w-7xl mx-auto px-6 text-center">
+                <div className="section-wrap text-center">
                     <p className="text-destructive font-medium mb-4">Failed to load projects. Please try again later.</p>
                     <Button variant="outline" onClick={() => fetchRepos()}>
                         Retry Loading
@@ -170,61 +183,64 @@ export function Projects() {
 
     return (
         <section id="projects" className="py-24">
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="section-wrap">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="text-center mb-16"
+                    className="text-center mb-14"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-3">
+                    <h2 className="section-heading mb-4 flex items-center justify-center gap-3">
                         <Github className="text-primary" /> Top Projects
                     </h2>
                     <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {repos.map((repo, idx) => (
-                        <motion.div
+                        <motion.a
                             key={repo.id}
+                            href={repo.html_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            className="group glass p-8 rounded-3xl flex flex-col hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
+                            transition={{ duration: 0.45, delay: idx * 0.08 }}
+                            className="group glass p-7 rounded-3xl flex flex-col hover:border-primary/55 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                                <Folder size={80} />
+                            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <Folder size={72} />
                             </div>
 
                             <div className="flex items-center justify-between mb-6">
-                                <span className="p-3 bg-primary/10 rounded-2xl text-primary">
-                                    <Github size={24} />
+                                <span className="p-3 bg-primary/12 rounded-2xl text-primary">
+                                    <Github size={22} />
                                 </span>
-                                <div className="flex gap-4">
-                                    <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                                        <Github size={20} />
-                                    </a>
+                                <div className="flex gap-4 text-muted-foreground">
+                                    <span className="group-hover:text-primary transition-colors">
+                                        <Github size={19} />
+                                    </span>
                                     {repo.homepage && (
-                                        <a href={repo.homepage} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                                            <ExternalLink size={20} />
-                                        </a>
+                                        <span className="hover:text-primary transition-colors">
+                                            <ExternalLink size={19} />
+                                        </span>
                                     )}
                                 </div>
                             </div>
 
-                            <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors line-clamp-1">
+                            <h3 className="text-lg font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">
                                 {repo.name}
                             </h3>
-                            <p className="text-muted-foreground text-sm mb-6 line-clamp-3 h-15 leading-relaxed">
+                            <p className="text-muted-foreground text-sm mb-6 line-clamp-3 leading-relaxed min-h-[64px]">
                                 {repo.description || 'No description provided.'}
                             </p>
 
-                            <div className="mt-auto pt-6 border-t flex items-center justify-between">
-                                <div className="flex gap-3">
+                            <div className="mt-auto pt-5 border-t border-border/70 flex items-center justify-between gap-4">
+                                <div className="flex gap-2">
                                     {repo.language && (
-                                        <span className="text-xs font-semibold px-2 py-1 bg-secondary/50 rounded-md">
+                                        <span className="text-xs font-semibold px-2.5 py-1 rounded-md border bg-background/55">
                                             {repo.language}
                                         </span>
                                     )}
@@ -238,13 +254,13 @@ export function Projects() {
                                     </span>
                                 </div>
                             </div>
-                        </motion.div>
+                        </motion.a>
                     ))}
                 </div>
 
-                <div className="mt-16 text-center">
+                <div className="mt-14 text-center">
                     <Button variant="outline" className="rounded-full px-8" asChild>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/Rudh1830" target="_blank" rel="noopener noreferrer">
                             Load More Repositories
                         </a>
                     </Button>

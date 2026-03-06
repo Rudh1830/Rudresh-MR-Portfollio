@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -9,25 +9,23 @@ import Image from 'next/image';
 
 export function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-            {/* Background Decor */}
-            <div className="absolute top-1/4 -left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/4 -right-20 w-72 h-72 bg-secondary/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+            <div className="absolute -top-24 -left-32 h-80 w-80 rounded-full bg-primary/30 blur-3xl" />
+            <div className="absolute bottom-0 -right-24 h-80 w-80 rounded-full bg-accent/25 blur-3xl" />
 
-            <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div className="section-wrap grid md:grid-cols-2 gap-12 items-center relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="text-primary font-medium mb-4 flex items-center gap-2">
-                        <span className="w-12 h-[1px] bg-primary" />
-                        Hello, I am
-                    </h2>
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-                        rudresh<span className="text-primary">.mr</span>
+                    <div className="inline-flex items-center gap-2 rounded-full border border-primary/35 bg-primary/10 px-4 py-1 text-sm font-semibold text-primary mb-5">
+                        AI Student Portfolio
+                    </div>
+                    <h1 className="text-5xl md:text-7xl font-bold mb-5 tracking-tight leading-tight">
+                        Rudresh<span className="text-primary">.MR</span>
                     </h1>
-                    <div className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground h-16">
+                    <div className="text-2xl md:text-3xl font-semibold mb-5 text-foreground/80 h-16">
                         <Typewriter
                             words={[
                                 'AI Resident & Innovator',
@@ -38,7 +36,7 @@ export function Hero() {
                             ]}
                         />
                     </div>
-                    <p className="text-lg text-muted-foreground mb-8 max-w-lg leading-relaxed">
+                    <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
                         An Artificial Intelligence and Data Science student at Karpagam College of Engineering,
                         passionate about building intelligent systems and extracting insights from complex data.
                         Currently exploring the frontiers of Deep Learning and Generative AI.
@@ -57,41 +55,39 @@ export function Hero() {
                         </Button>
                     </div>
 
-                    <div className="flex items-center gap-6 relative z-20">
-                        <a href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Rudh1830'}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">
-                            <Github size={24} />
+                    <div className="flex items-center gap-3 relative z-20">
+                        <a href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'Rudh1830'}`} target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl border bg-background/50 hover:text-primary hover:border-primary/40 transition-colors">
+                            <Github size={20} />
                         </a>
-                        <a href={process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/in/rudresh-m-r-842022298'} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">
-                            <Linkedin size={24} />
+                        <a href={process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://www.linkedin.com/in/rudresh-m-r-842022298'} target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl border bg-background/50 hover:text-primary hover:border-primary/40 transition-colors">
+                            <Linkedin size={20} />
                         </a>
-                        <a href={`https://www.kaggle.com/${process.env.NEXT_PUBLIC_KAGGLE_USERNAME || 'rudresh18'}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">
-                            <span className="font-bold text-xl leading-none">K</span>
+                        <a href={`https://www.kaggle.com/${process.env.NEXT_PUBLIC_KAGGLE_USERNAME || 'rudresh18'}`} target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-xl border bg-background/50 hover:text-primary hover:border-primary/40 transition-colors">
+                            <span className="font-bold text-base leading-none">K</span>
                         </a>
-                        <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL || 'rudreshramasamy@gmail.com'}`} className="hover:text-primary transition-colors cursor-pointer">
-                            <Mail size={24} />
+                        <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL || 'rudreshramasamy@gmail.com'}`} className="p-2.5 rounded-xl border bg-background/50 hover:text-primary hover:border-primary/40 transition-colors">
+                            <Mail size={20} />
                         </a>
                     </div>
                 </motion.div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
+                    initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.15 }}
                     className="relative flex justify-center"
                 >
-                    <div className="relative w-72 h-72 md:w-96 md:h-96">
-                        {/* Glass decoration */}
-                        <div className="absolute inset-0 border-2 border-primary/30 rounded-[2.5rem] rotate-6 scale-105" />
-                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-[2.5rem] -rotate-3" />
+                    <div className="relative w-72 h-72 md:w-[26rem] md:h-[26rem]">
+                        <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-primary/35 via-transparent to-accent/35 blur-sm" />
+                        <div className="absolute inset-3 border border-primary/40 rounded-[2.2rem] -rotate-2" />
+                        <div className="absolute inset-0 rounded-[2.4rem] bg-white/25 dark:bg-black/25 backdrop-blur-md" />
 
-                        <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border-4 border-background shadow-2xl">
-                            {/* Using a placeholder since I can't "see" the image as a file yet if not uploaded specifically, 
-                  but the user said they uploaded it. I'll check public folder. */}
+                        <div className="absolute inset-4 rounded-[2rem] overflow-hidden border-4 border-background shadow-2xl shadow-black/20">
                             <Image
                                 src="/photo.png"
-                                alt="rudresh.mr"
+                                alt="Rudresh.MR"
                                 fill
-                                className="object-cover"
+                                className="object-cover object-top"
                                 priority
                             />
                         </div>
