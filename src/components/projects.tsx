@@ -20,6 +20,18 @@ interface Repository {
 
 const FALLBACK_REPOS: Repository[] = [
     {
+        id: 1180000001,
+        name: 'Speaker Identification System',
+        description: 'Machine learning project for identifying speakers from audio using speech features and speaker recognition techniques.',
+        html_url: 'https://github.com/Rudh1830?tab=repositories&q=speaker',
+        homepage: '',
+        stargazers_count: 0,
+        forks_count: 0,
+        language: 'Python',
+        topics: ['Speaker Identification', 'Audio AI', 'Machine Learning'],
+        fork: false,
+    },
+    {
         id: 1171480901,
         name: 'Smart Manufacturing Analytics',
         description: 'Lightweight data analytics system for reducing rejection rates in small industries using Pareto analysis and control charts.',
@@ -118,6 +130,11 @@ export function Projects() {
             const data: Repository[] = await response.json();
 
             const importantRepoNames = [
+                'Speaker-Identification',
+                'Speaker-Identification-System',
+                'Speaker-Recognition',
+                'Speaker-Recognition-System',
+                'Speaker-Identification-Python',
                 'Intruder-Detection-System-Using-YOLOv8-with-Gradio-Interface',
                 'Real-Time-News-Data-Streaming-Pipeline-Using-Snowflake-and-Docker',
                 'Data-Analytics-Model-To-Reduce-Rejection-Rates-In-Small-Industries',
@@ -129,13 +146,17 @@ export function Projects() {
             const sortedRepos = data
                 .filter(repo => !repo.fork && repo.name !== username)
                 .sort((a, b) => {
-                    const aImportant = importantRepoNames.includes(a.name) ? 1 : 0;
-                    const bImportant = importantRepoNames.includes(b.name) ? 1 : 0;
+                    const aName = a.name.toLowerCase();
+                    const bName = b.name.toLowerCase();
+                    const aSpeakerProject = aName.includes('speaker') && (aName.includes('identification') || aName.includes('recognition'));
+                    const bSpeakerProject = bName.includes('speaker') && (bName.includes('identification') || bName.includes('recognition'));
+                    const aImportant = importantRepoNames.includes(a.name) || aSpeakerProject ? 1 : 0;
+                    const bImportant = importantRepoNames.includes(b.name) || bSpeakerProject ? 1 : 0;
                     if (aImportant !== bImportant) return bImportant - aImportant;
                     return b.stargazers_count - a.stargazers_count;
                 });
 
-            const topRepos = sortedRepos.slice(0, 6);
+            const topRepos = sortedRepos.slice(0, 7);
             setRepos(topRepos.length > 0 ? topRepos : FALLBACK_REPOS);
         } catch (err) {
             console.error('Error fetching GitHub repos:', err);
@@ -159,7 +180,7 @@ export function Projects() {
                         <div className="h-1 w-24 bg-primary/20 mx-auto rounded-full" />
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[1, 2, 3, 4, 5, 6].map((i) => (
+                        {[1, 2, 3, 4, 5, 6, 7].map((i) => (
                             <div key={i} className="glass h-72 rounded-3xl animate-pulse" />
                         ))}
                     </div>
